@@ -27,13 +27,13 @@ public class UserController {
 	@Autowired
 	private LocationService locationService;
 	
-	@RequestMapping(method=RequestMethod.POST)
+	@RequestMapping(value="/create",method=RequestMethod.POST)
 	public Users createUser(@RequestBody UserReq requestUser) {
 		locationService.addToLocation(new LocationReq(null, requestUser.getNum()), (long)1);
 		return userService.createUser(requestUser);
 	}
 	
-	@RequestMapping(method=RequestMethod.GET)
+	@RequestMapping(value="/get",method=RequestMethod.GET)
 	public List<Users> getAllUsers() {
 		return userService.getAllUsers();
 	}
@@ -48,7 +48,7 @@ public class UserController {
 		return userService.getUserByUsername(name);
 	}
 	
-	@RequestMapping(value="login")
+	@RequestMapping(value="login",method=RequestMethod.POST)
 	public Users loginUser(@RequestBody UserReq requestUser) {
 		locationService.addToLocation(new LocationReq(null, requestUser.getNum()), (long)-1);
 		return userService.login(requestUser);

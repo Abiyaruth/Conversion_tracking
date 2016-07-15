@@ -22,12 +22,12 @@ public class LocationController {
 // private LocationRespository repo;
  @Autowired
  private LocationService ser;
- @RequestMapping(method=RequestMethod.POST)
+ @RequestMapping(value="/LocCreate",method=RequestMethod.POST)
 	public Location createLocation(@RequestBody LocationReq requestLocation) {
 		return ser.addToLocation(requestLocation, (long)1);
 	}
 	
-	@RequestMapping(method=RequestMethod.GET)
+	@RequestMapping(value="/getLoc",method=RequestMethod.GET)
 	public List<Location> getAllLocations() {
 		return ser.getAllLocations();
 	}
