@@ -52,5 +52,9 @@ public Users(long id, String username, String password, long num) {
 public Users() {
 	super();
 }
+public static Users format(String string) {
+	// TODO Auto-generated method stub
+	return null;
+}
 
 }

@@ -44,7 +44,9 @@ public class UserServiceImpl implements UserService{
 			return onFile;
 		}
 		
-		return null;
+		{
+			 throw new IllegalArgumentException("The name or the password is wrong.Try logging in again");
+		}
 	}
 
 	@Override
@@ -66,8 +68,9 @@ public class UserServiceImpl implements UserService{
 			user.setNum(requestUser.getNum());
 			return user;
 		}
-		
-		return null;
+		{
+			 throw new IllegalArgumentException("The 'name' already exists");
+		}
 	}
 	
 	private boolean verifyUser(Users toLogin, Users onFile) {

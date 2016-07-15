@@ -27,7 +27,7 @@ public class UserController {
 	@Autowired
 	private LocationService locationService;
 	
-	@RequestMapping(value="/create",method=RequestMethod.POST)
+	@RequestMapping(value="create",method=RequestMethod.POST)
 	public Users createUser(@RequestBody UserReq requestUser) {
 		locationService.addToLocation(new LocationReq(null, requestUser.getNum()), (long)1);
 		return userService.createUser(requestUser);
