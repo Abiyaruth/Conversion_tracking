@@ -18,6 +18,8 @@ private String username;
 private String password;
 @Column(name="num")
 private long num;
+@Column 
+private String role;
 public long getId() {
 	return id;
 }
@@ -42,12 +44,21 @@ public long getNum() {
 public void setNum(long num) {
 	this.num = num;
 }
-public Users(long id, String username, String password, long num) {
+
+public String getRole() {
+	return role;
+}
+public void setRole(String role) {
+	this.role = role;
+}
+
+public Users(long id, String username, String password, long num, String role) {
 	super();
 	this.id = id;
 	this.username = username;
 	this.password = password;
 	this.num = num;
+	this.role = role;
 }
 public Users() {
 	super();

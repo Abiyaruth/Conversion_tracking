@@ -79,4 +79,9 @@ public class UserServiceImpl implements UserService{
 		return (toLogin.getUsername().equals(onFile.getUsername()) && toLogin.getPassword().equals(onFile.getPassword()));
 	}
 
+	@Override
+	public Users getUserByRole(String role) {
+	return userRepo.findUserByRole(role);
+	}
+
 }

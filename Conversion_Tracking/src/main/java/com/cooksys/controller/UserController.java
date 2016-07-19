@@ -53,5 +53,8 @@ public class UserController {
 		locationService.addToLocation(new LocationReq(null, requestUser.getNum()), (long)-1);
 		return userService.login(requestUser);
 	}
-
+@RequestMapping(value="role/{role}")
+public Users getByRole(@PathVariable String role) {
+	return userService.getUserByRole(role);
+}
 }

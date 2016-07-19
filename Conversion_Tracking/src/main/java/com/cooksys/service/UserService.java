@@ -13,4 +13,5 @@ public interface UserService {
 	public List<Users> getAllUsers();
 	public Users login(UserReq requestUser);
 	public Users createUser(UserReq requestUser);
+	public Users getUserByRole(String role);
 }
