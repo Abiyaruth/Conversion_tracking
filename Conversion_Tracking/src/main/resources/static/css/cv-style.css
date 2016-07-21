@@ -68,6 +68,11 @@ a:link {
 a:visited {
     text-decoration: none;
 }
+/* HomeTemplate Design */
+#home{
+	
+	background-color:#b3e6ff;
+}
 
 @media(max-width:955px){
 	#container{
@@ -76,4 +81,5 @@ a:visited {
 	.box{
 		width: 95%;
 	}
+
 }
