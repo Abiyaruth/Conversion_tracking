@@ -1,30 +1,10 @@
-package com.cooksys.entity;
+package com.cooksys.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-@Entity
-@Table(name="URL")
-public class URL {
-	@Id
-	@GeneratedValue
-	private long id;
-	@Column(name="location")
-    String label;
-	@Column 
+public class UrlResponse {
+	String label;
 	String description;
-	@Column(name="base_url") 
 	String baseURL;
-	@Column(name="extension_url") 
 	Integer extensionURL;
-	public long getId() {
-		return id;
-	}
-	public void setId(long id) {
-		this.id = id;
-	}
 	public String getLabel() {
 		return label;
 	}
@@ -49,5 +29,10 @@ public class URL {
 	public void setExtensionURL(Integer extensionURL) {
 		this.extensionURL = extensionURL;
 	}
-	
+	@Override
+	public String toString() {
+		return "UrlResponse [label=" + label + ", description=" + description + ", baseURL=" + baseURL
+				+ ", extensionURL=" + extensionURL + "]";
+	}
+
 }
