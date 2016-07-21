@@ -1,27 +1,36 @@
 angular.
   module('app').
   config(['$routeProvider', 'baseRoute', 'homePage',
-    function config($routeProvider, baseRoute, homePage) {
-
+          function config($routeProvider, baseRoute, homePage) {
       $routeProvider.
       	when('/home', {
-          
           templateUrl: homePage,
           controller: 'HomeController',
           controllerAs: 'homeController'
-          
         }).
-        when('/Location',{
-        	   templateUrl: baseRoute + 'location/locationTemplate.html',
-          controller: 'LocationController',
-          controllerAs: 'LocationController',
+      	when('/login', {
+            templateUrl: baseRoute + 'user/loginTemplate.html',
+            controller: 'LoginController',
+            controllerAs: 'loginController'
+          }).
+      	when('/admin', {
+          templateUrl: baseRoute + 'user/adminTemplate.html',
+          controller: 'AdminController',
+          controllerAs: 'adminController',
           resolve: {
-              allUsers: function(LocationService){
-	                  return LocationService.getAllUsers();
-	          }
+//              allURLs: function(AdminService){
+//	                  return AdminService.getURLs();
+//	          }
+        	  //TODO
           }
-        
         }).
-       otherwise('/home');
-  }
-  ]);
+        when('/user', {
+        	templateUrl: baseRoute + 'user/userTemplate.html',
+        	controller: 'UserController',
+        	controllerAs: 'userController'
+        }).
+        otherwise('/home');
+    }
+  ])
+  
+

@@ -1,0 +1,121 @@
+<div class="jumbotron text-center">
+<h2>Admin Page </h2>
+</div>
+
+<!-- Redirects the admin to loginPage -->
+
+<div class="container">
+  <div class="row">
+ 	 <div class="col-lg-3 col-offset-6 centered"><h4><a href="" ng-click="adminController.navTo()">
+ 	 Return To Login page</a></h4>
+ 	 </div>
+ 	 </div>
+ 	 </div>
+ 	 
+ <!-- Display the base Url -->	
+ 
+ 	<div class="container"> 
+ 	<div class="col-lg-3 col-offset-6 centered">
+    <h4>Base Url: <input ng-model="adminController.baseUrl" readonly /></h4>
+</div>
+</div>
+
+<!-- Navigation tabs  -->
+
+  <div id="content">
+  <div class="col-lg-5 col-offset-8 centered">
+    <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+        <li class="active"><a href="#home" data-toggle="tab"><h4>Home</h4></a></li>
+        <li><a href="#newUrls" data-toggle="tab"><h4>NewUrl</h4></a></li>
+        <li><a href="#hits" data-toggle="tab"><h4>Hits</h4></a></li>
+    </ul>
+    </div>
+    
+ <!-- Admin homepage  -->
+ 
+   <div class="col-sm-offset-1 col-sm-10 centered" >
+    <div id="tab-content" class="tab-content">
+      <div class="tab-pane active" id="home">
+        <h3>Welcome to Admin page</h3>
+      </div>
+      
+   <!--Add new Url -->   
+        <div class="tab-pane col-sm-10 centered"  id="newUrls" >
+        <h1>New URLs</h1>
+        <ul id="new_urls" class="outlined col-sm-8">
+          <li>
+           <form id="input_new_url" class="input_new_url form-horizontal" ng-submit="adminController.new_url()">
+              <div class="form-group">
+                <label for="label" class="input_new_url control-label col-sm-3">Label</label>
+                <div class="col-sm-8">
+                  <input id="label" class="input_new_url form-control" ng-model="adminController.label" type="text" />
+                  <a class="clear" ng-click="searchAll = null">
+                 <span id="clear" class="glyphicon glyphicon-remove" ng-click="clearSearch()"></span> </a>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="description" class="input_new_url control-label col-sm-3">Description</label>
+                <div class="col-sm-8">
+                  <input id="description" class="input_new_url form-control" ng-model="adminController.description" type="text" />
+                  <a class="clear" ng-click="searchAll = null">
+            <span id="clear" class="glyphicon glyphicon-remove" ng-click="clearSearch()"></span> </a>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-offset-5 col-sm-6">
+                  <input id="submit" class="input_new_url btn btn-primary" value="Submit" type="submit" />             
+                </div>
+              </div>
+            </form>
+          </li>
+  
+  <!-- Get and display the New Url -->
+  
+          <div ng-repeat="url in adminController.allURLs">
+            <li><span class="glyphicon glyphicons-mixed-buildings" aria-hidden="true"></span>
+				 <div class="col-sm-4">Location: {{url.label}}</div>
+				 <div class="col-sm-4">Description: {{url.description}}</div>
+				 <div class="col-sm-4">New Login: {{url.baseURL}}/{{url.extensionURL}}</div></li>
+          </div>
+        </ul>
+      </div>
+    <!--Display Hits Rate -->    
+        <div class="tab-pane col-sm-offset-1 centered" id="hits">
+        <h3>Hits Count</h3> <!-- need to do -->
+       
+        <!-- Split button -->
+        
+    <div class="btn-group">
+  <button type="button" class="btn btn-info"> <a href="#">Hits</a></button>
+  <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <span class="caret"></span>
+    <span class="sr-only">Toggle Dropdown</span>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a href="#">Day</a></li>
+    <li><a href="#">Week</a></li>
+    <li><a href="#">Month</a></li>
+    <li role="separator" class="divider"></li>
+    <li><a href="#">Year</a></li>
+  </ul>
+  </div>
+ </div>
+    
+</div>
+
+
+<script type="text/javascript">
+    jQuery(document).ready(function ($) {
+      $('#tabs a').click(()=>{
+		event.preventDefault()
+      })
+        $('#tabs').tab();
+    });
+</script>    
+</div> 
+</div>
+
+  
+
+ 

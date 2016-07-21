@@ -1,0 +1,79 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+@import url(https://fonts.googleapis.com/css?family=Share);
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500);
+body {
+	font-size: 18px;
+	font-family: 'Roboto', sans-serif;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 35px;
+}
+#nameCard{
+	padding:0px;
+	margin:0px;
+	margin-left: 10px;
+	float: left;
+}
+#dp{
+	float: rigth;
+	height: 205px;
+    width: 205px;
+    border: 2px solid rgba(82, 82, 82, 0);
+    border-radius: 172px;
+}
+#container{
+	padding: 0px;
+	margin: auto;
+	width: 910px;
+	background-color: #ffffff;
+}	
+.box{
+	margin-top: 20px;
+	width: 875px;
+	padding: 15px 15px 15px 25px;
+	border: 2px solid #ffffff;
+	border-radius: 60px 10px 60px 10px;
+	overflow: auto;
+}
+#box1{
+	color: #ffffff;
+	background-color: #4EB38D;
+	border-radius:60px 140px 140px 10px;
+}
+#box2{
+	color: #4C4C4C;
+	background-color: #F3F3F3;
+}
+#box3{
+	color: #EEF9FF;
+    background-color: #2C87B9;
+}
+#box4{
+	color: #4C4C4C;
+	background-color: #F3F3F3;
+}
+#otherLink{
+	color: #FFFFFF;
+    text-align: center;
+    background-color: #FF6868;
+	border-radius: 40px;
+}
+#otherLink:active { 
+    background-color: #55CA5D;
+}
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+@media(max-width:955px){
+	#container{
+		width: 100%;
+	}
+	.box{
+		width: 95%;
+	}
+}
