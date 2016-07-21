@@ -41,10 +41,12 @@ angular
 				  "extensionURL" :ctl.extensionURL,
 				  "description" :ctl.description,
 				  "label" :ctl.label,
+
 				  
 		  }
 		
 		  console.dir(Url)
+		  
 		  AdminService.submitURL(Url)
 		  .then((response)=> {
 			  if(response.status==200){
@@ -54,7 +56,10 @@ angular
 			  }
 		  })
 	  }
-
+		  $scope.clearSearch = function() {
+			    ctl.description = null
+			    ctl.label = null
+			}
 	   
 
 //	   $scope.new_url = function () {
