@@ -1,33 +1,11 @@
-//angular.module('app').controller('AdminController', ['AdminService','$scope','$location','$routeParams', function AdminController(AdminService,$scope,$location,$routeParams) {
-//	$scope.redirect = function(url, refresh) {
-//	    if(refresh || $scope.$$phase) {
-//	        $window.location.href = url;
-//	    } else {
-//	        $location.path(url);
-//	        $scope.$apply();
-//	    }
-//	}
-//	
-////	this.goLogin = function() {
-////        $location.path ('/login');
-////	}
-//        // var ctrl=this;
-////	   this.goToLogin =function(url) {
-////		   if ($location.path() == url) {
-////				$route.reload()
-////			} else {
-////				$location.path(url);
-////			}
-////		}
-////		
-////		if ($location) {
-////			ctl.alocation = $location.path()
-////		}
-//	    } ]);   
-angular.module('app').controller('AdminController', ['AdminService', '$routeParams', 'LoginService', '$location', '$scope', 'baseLogin', function(AdminService, $routeParams, LoginService, $location, $scope, baseLogin)
+angular
+.module('app')
+.controller('AdminController', ['AdminService','$routeParams', '$location', '$scope','$http', function(AdminService, $routeParams, $location, $scope,$http)
 {
-	const ctl = this
 	
+	var ctl = this
+	
+// Redirects to the login page
 	this.navTo = function(url) {
 		if ($location.path() == url) {
 			$route.reload()
@@ -36,30 +14,64 @@ angular.module('app').controller('AdminController', ['AdminService', '$routePara
 		}
 	}
 	
-	ctl.admin = LoginService.loginStatus().obj
-	
-	if ($location) {
-//		ctl.alocation = $location.path()
-		ctl.alocation = baseLogin
-	}
-	
-//	this.createLogin = function(number, label, description) {
-//		return {
-//			number,
-//			label,
-//			description
+//Display baseUrl
+	   ctl.baseUrl=$location.path();
+	   
+//Adding NewUrl
+//	   var ctrl = this;
+//		
+//		this.createUrl = function() {
+//			var url = {
+//					"baseUrl": ctrl.baseUrl,
+//					"number": +ctrl.number,
+//					"description": ctrl.description,
+//					"label" :ctrl.label,
+//			}
+//			console.dir(url)
+//			UrlService.submitUrl(url)
 //		}
-//	}
-//	var x = 0 //change to number of urls + 1 when you implement it
-//	this.addUrl = function() {
-//		var template_url = '<div class="col-sm-4" id="url' + x + '"> <h1>' + baseLogin + '/' + x + ' </h1></div>';
-//		var template_label = '<div class="col-sm-4" id="lab' + x + '"><h1>label</h1></div>'
-//		var template_descr = '<div class="col-sm-4" id="des' + x + '"><h1>desc</h1></div>'
-//		angular.element(document.getElementsByName('urls')).append(template_url)
-//		angular.element(document.getElementsByName('urls')).append(template_label)
-//		angular.element(document.getElementsByName('urls')).append(template_descr)
-//		x++;
-//	}
-
-
-}])
+//	   
+	   
+//	   $scope.newUrl=function() {
+//		   var url=$scope.url;
+//		   url.baseUrl='/login'
+//		   url.extensionUrl=appendNum(url.baseUrl)
+//		   $http.post("/url/find",data).then(data)=> {
+//			  $scope.hello=data;
+//	   }
+//	   console.log("reached")
+////Appending number to baseUrl
+//	   
+//	   var appendNum=function(baseUrl){
+//		   let max = 0
+//			let extensions = $scope.URLs.filter((x) => x.baseUrl === baseUrl).map((x) => x.appendNum)
+//			do {
+//				max++
+//			} while(extensions.indexOf(max) != -1)
+//			return max
+//	   }
+	   
+	
+////Adding new url
+//	   $scope.newurl = function () {
+//			let url = $scope.url
+//			url.baseURL = '/login'
+//			url.extensionURL = appendNum(url.baseURL)
+//			
+//	
+////Appending number to baseUrl
+//	   console.log("admin check");
+//	   const appendNum =function(baseUrl){
+//		   var num=0;
+//		   $scope.url.filter(n)
+//		   if(n.baseUrl===baseUrl){
+//		   var append=baseUrl+num;
+//		   num++;
+//		   }else {
+//			   return num;
+//		   }
+////		  
+//		   console.log("append");
+//		   var append=$scope.Url.filter((n)=>n.baseUrl===baseUrl).map((n=>n.append)
+		   	
+}]);
