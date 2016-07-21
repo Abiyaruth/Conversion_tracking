@@ -18,8 +18,8 @@ angular.
           controller: 'AdminController',
           controllerAs: 'adminController',
           resolve: {
-//              allUsers: function(UserService){
-//	                  return UserService.getAllUsers();
+//              allURLs: function(AdminService){
+//	                  return AdminService.getURLs();
 //	          }
         	  //TODO
           }
@@ -32,3 +32,5 @@ angular.
         otherwise('/home');
     }
   ])
+  
+

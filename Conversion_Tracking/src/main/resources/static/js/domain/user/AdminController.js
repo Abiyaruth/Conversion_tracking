@@ -1,8 +1,9 @@
 angular
 .module('app')
-.controller('AdminController', ['AdminService','$routeParams', '$location', '$scope','$http', function(AdminService, $routeParams, $location, $scope,$http)
+.controller('AdminController', ['AdminService','$routeParams', '$location', '$scope','$http','$filter', function(AdminService,$routeParams, $location, $scope,$http,$filter)
 {
-	
+	console.log("adminController")
+
 	var ctl = this
 	
 // Redirects to the login page
@@ -15,63 +16,75 @@ angular
 	}
 	
 //Display baseUrl
+	
 	   ctl.baseUrl=$location.path();
 	   
-//Adding NewUrl
-//	   var ctrl = this;
-//		
-//		this.createUrl = function() {
-//			var url = {
-//					"baseUrl": ctrl.baseUrl,
-//					"number": +ctrl.number,
-//					"description": ctrl.description,
-//					"label" :ctrl.label,
-//			}
-//			console.dir(url)
-//			UrlService.submitUrl(url)
-//		}
-//	   
+//Getting Url
 	   
-//	   $scope.newUrl=function() {
-//		   var url=$scope.url;
-//		   url.baseUrl='/login'
-//		   url.extensionUrl=appendNum(url.baseUrl)
-//		   $http.post("/url/find",data).then(data)=> {
-//			  $scope.hello=data;
-//	   }
-//	   console.log("reached")
-////Appending number to baseUrl
-//	   
-//	   var appendNum=function(baseUrl){
-//		   let max = 0
-//			let extensions = $scope.URLs.filter((x) => x.baseUrl === baseUrl).map((x) => x.appendNum)
+		  ctl.getURLs=function(){
+			  console.log("Im in UR getURLs, iterating over your RESULTZ")
+			AdminService.getURLs()
+			.then(function(result){
+				ctl.allURLs=result.data
+				console.log("allurls")
+				console.dir(ctl.allURLs)
+			})
+		  }	   
+		  ctl.getURLs()
+		  
+//Adding NewUrl
+		  
+	  ctl.new_url=function() {
+		  console.log("Im in UR new_urls, messin wit ur new URL to store")
+		  var Url = {
+				  "baseURL" : '/login',
+				  "extensionURL" :ctl.extensionURL,
+				  "description" :ctl.description,
+				  "label" :ctl.label,
+				  
+		  }
+		
+		  console.dir(Url)
+		  AdminService.submitURL(Url)
+		  .then((response)=> {
+			  if(response.status==200){
+				  ctl.allURLs.push(Url)
+			  }else{
+				  console.log("failed")
+			  }
+		  })
+	  }
+
+	   
+
+//	   $scope.new_url = function () {
+//			let url = $scope.url
+//			url.baseURL = '/login'
+//			
+//			url.extensionURL = getExtensionURL(url.baseURL)
+//			
+//			$http({
+//        url: '/url',
+//        method: "POST",
+//        data: 'url'}).then((response) => {
+//		    	if(response.status == 200){
+//		    		// success
+//		    		let url = response.data
+//		    		url.anonCount = 0
+//		    		$scope.URLs.push(url)
+//		    	} else {
+//		    		 console.log("admin")
+//		    	}
+//		    })
+//		}
+//	   const getExtensionURL = function (baseURL) {
+//			let max = 0
+//			let extensions = $scope.URLs.filter((x) => x.baseURL === baseURL).map((x) => x.extensionURL)
 //			do {
 //				max++
 //			} while(extensions.indexOf(max) != -1)
 //			return max
-//	   }
-	   
-	
-////Adding new url
-//	   $scope.newurl = function () {
-//			let url = $scope.url
-//			url.baseURL = '/login'
-//			url.extensionURL = appendNum(url.baseURL)
-//			
-//	
-////Appending number to baseUrl
-//	   console.log("admin check");
-//	   const appendNum =function(baseUrl){
-//		   var num=0;
-//		   $scope.url.filter(n)
-//		   if(n.baseUrl===baseUrl){
-//		   var append=baseUrl+num;
-//		   num++;
-//		   }else {
-//			   return num;
-//		   }
-////		  
-//		   console.log("append");
+//		}
 //		   var append=$scope.Url.filter((n)=>n.baseUrl===baseUrl).map((n=>n.append)
 		   	
 }]);

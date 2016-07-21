@@ -1,1 +1,1 @@
-angular.module('app').constant('baseRoute', 'js/domain/').constant('homePage', 'js/core/home.html');
+angular.module('app').constant('baseRoute', 'js/domain/').constant('homePage', 'js/core/home.html').constant('SPRING_NEWURL_URI','/url');
