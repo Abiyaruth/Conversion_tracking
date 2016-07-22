@@ -10,8 +10,13 @@ import com.cooksys.entity.URL;
 
 public interface UrlRepository extends JpaRepository<URL,Long>{
 
-	Object findOneByLabel(String label);
+	URL findOneByLabel(String label);
 
 	List<URL> findURLByBaseURLAndExtensionURL(String baseURL, String extensionURL);
+
+	 URL findByExtensionURL(String label); 
+
+
+
 
 }

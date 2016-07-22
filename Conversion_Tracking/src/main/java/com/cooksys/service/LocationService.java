@@ -14,12 +14,15 @@ public interface LocationService {
 
 	List<Location> getAllLocations();
 
-	Location getLocationById(Long id);
+	Location getLocationById(String label);
 
 //	Location getLocationByName(String name);
 
 	String getConversionRateByLocation(Long id);
 
 	Location createLocation(LocationReq requestLocation);
+
+	Location getLocationById(Long id);
+
 
 }

@@ -19,6 +19,11 @@ public class URL {
 	String baseURL;
 	@Column(name="extension_url") 
 	Integer extensionURL;
+	public URL() {
+	}
+	public URL(String label) {
+	
+	}
 	public long getId() {
 		return id;
 	}
@@ -48,6 +53,11 @@ public class URL {
 	}
 	public void setExtensionURL(Integer extensionURL) {
 		this.extensionURL = extensionURL;
+	}
+	@Override
+	public String toString() {
+		return "URL [id=" + id + ", label=" + label + ", description=" + description + ", baseURL=" + baseURL
+				+ ", extensionURL=" + extensionURL + "]";
 	}
 	
 }

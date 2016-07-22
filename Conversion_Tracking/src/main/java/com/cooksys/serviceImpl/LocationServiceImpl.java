@@ -90,4 +90,11 @@ public Location addToLocation(LocationReq requestLocation, long n) {
 	}
 	return null;
 }
+
+@Override
+public Location getLocationById(String label) {
+	// TODO Auto-generated method stub
+	return null;
+}
+
 }

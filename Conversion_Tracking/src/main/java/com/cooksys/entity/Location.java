@@ -4,6 +4,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -20,6 +22,9 @@ public class Location {
 	private long annoTrack;
 	@Column (name="area")
 	private long area;
+	@ManyToOne(targetEntity = Hits.class)
+	@JoinColumn(name = "hits")
+	Hits hits;
 	public long getId() {
 		return id;
 	}
@@ -60,6 +65,14 @@ public class Location {
 	}
 	public Location() {
 		super();
+	}
+	@Override
+	public String toString() {
+		return "Location [id=" + id + ", title=" + title + ", track=" + track + ", annoTrack=" + annoTrack + ", area="
+				+ area + ", hits=" + hits + "]";
+	}
+	public void setHits(Object hits) {
+		
 	}
 
 }

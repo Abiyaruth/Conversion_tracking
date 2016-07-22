@@ -1,6 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat);
 @import url(https://fonts.googleapis.com/css?family=Share);
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,500);
+@import "bootstrap-social.less";
 body {
 	font-size: 18px;
 	font-family: 'Roboto', sans-serif;
@@ -73,7 +74,6 @@ a:visited {
 	
 	background-color:#b3e6ff;
 }
-
 @media(max-width:955px){
 	#container{
 		width: 100%;

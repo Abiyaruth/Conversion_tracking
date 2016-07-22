@@ -46,6 +46,7 @@ angular
 		  }
 		
 		  console.dir(Url)
+//Storing NewUrl in database
 		  
 		  AdminService.submitURL(Url)
 		  .then((response)=> {
@@ -56,40 +57,12 @@ angular
 			  }
 		  })
 	  }
+		  
+// Clears the fields
+		  
 		  $scope.clearSearch = function() {
 			    ctl.description = null
 			    ctl.label = null
+			    ctl.extensionURL=null
 			}
-	   
-
-//	   $scope.new_url = function () {
-//			let url = $scope.url
-//			url.baseURL = '/login'
-//			
-//			url.extensionURL = getExtensionURL(url.baseURL)
-//			
-//			$http({
-//        url: '/url',
-//        method: "POST",
-//        data: 'url'}).then((response) => {
-//		    	if(response.status == 200){
-//		    		// success
-//		    		let url = response.data
-//		    		url.anonCount = 0
-//		    		$scope.URLs.push(url)
-//		    	} else {
-//		    		 console.log("admin")
-//		    	}
-//		    })
-//		}
-//	   const getExtensionURL = function (baseURL) {
-//			let max = 0
-//			let extensions = $scope.URLs.filter((x) => x.baseURL === baseURL).map((x) => x.extensionURL)
-//			do {
-//				max++
-//			} while(extensions.indexOf(max) != -1)
-//			return max
-//		}
-//		   var append=$scope.Url.filter((n)=>n.baseUrl===baseUrl).map((n=>n.append)
-		   	
 }]);

@@ -24,6 +24,21 @@ angular.
         	  //TODO
           }
         }).
+        when('/register',{
+        	templateUrl:baseRoute+'user/registerTemplate.html',
+        	controller :'RegisterController',
+        	controllerAs :'registerController'
+        }).
+        when('/hits',{
+        	templateUrl :baseRoute +'user/hitsTemplate.html',
+        	controller : 'HitsController',
+        	controllerAs:'hitsController',
+        		 resolve: {
+                     allUrls: function(HitsService){
+                 		 return HitsService.getAllUrls();
+                 	  },
+        		 }
+        }).
         when('/user', {
         	templateUrl: baseRoute + 'user/userTemplate.html',
         	controller: 'UserController',
