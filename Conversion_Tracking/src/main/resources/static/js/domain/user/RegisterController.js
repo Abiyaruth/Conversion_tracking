@@ -1,8 +1,9 @@
 angular
   .module('app')
-  .controller('RegisterController',['RegisterService','$location','$routeParams', 'LoginService',	function(RegisterService, $location, $routeParams, LoginService) {
+  .controller('RegisterController',['RegisterService','$location','$routeParams', 'LoginService','$scope',	function(RegisterService, $location, $routeParams, LoginService,$scope) {
 	var ctrl = this;
 	ctrl.id = +$routeParams.id
+	console.log(ctrl.id)
 	
 	RegisterService.getInfo($routeParams.id)
 	.then(function(result){
@@ -28,10 +29,13 @@ angular
 			var m = date.getMonth()+1
 			var y = date.getFullYear()
 			date = m + "" + d + "" + y
+			
+			
 			RegisterService.addRegisterHit(date, ctrl.id)
 			.then(function(result) {
 				return null;
 			})
+			
 			RegisterService.addConvHit(date, ctrl.id)
 			.then(function(result) {
 				return null;
@@ -39,11 +43,13 @@ angular
 		}
 		ctrl.user = result.data
 		if (ctrl.user.code === 'OK') {
-			$location.path('/user')
+			$location.path('/home')
 		  }
-		else {
-		    alert('Signup Failed')
-		  }
+		
 	  })
 	}
+	$scope.display=false;
+	$scope.showD=function(){
+		 $scope.display=!$scope.display;
+	 }
 }])

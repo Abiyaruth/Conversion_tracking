@@ -1,5 +1,5 @@
 <body>
-<div class="jumbotron text-center">
+<div class="jumbotron text-center" id="home">
 <h2>Admin Page </h2>
 </div>
 
@@ -7,7 +7,7 @@
 
 <div class="container">
   <div class="row">
- 	 <div class="col-lg-3 col-offset-6 centered"><h4><a href="" ng-click="adminController.navTo()">
+ 	 <div class="col-lg-3 col-offset-6 centered"><h4><a href="#" ng-click="adminController.navTo()">
  	 Return To Login page</a></h4>
  	 </div>
  	 </div>
@@ -26,7 +26,7 @@
   <div id="content">
   <div class="col-lg-5 col-offset-8 centered">
     <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
-        <li class="active"><a href="#home" data-toggle="tab"><h4>Home</h4></a></li>
+        <li class="active"><a href="#home2" data-toggle="tab"><h4>Home</h4></a></li>
         <li><a href="#newUrls" data-toggle="tab"><h4>NewUrl</h4></a></li>
         <li><a href="#hits" data-toggle="tab"><h4>Hits</h4></a></li>
     </ul>
@@ -36,8 +36,11 @@
  
    <div class="col-sm-offset-1 col-sm-10 centered" >
     <div id="tab-content" class="tab-content">
-      <div class="tab-pane active">
+      <div class="tab-pane active text-center" id="home2">
         <h3>Welcome to Admin page</h3>
+       <p>
+       This page keeps track of the new registers and the loggedIn users
+        </p>
       </div>
       
    <!--Add new Url -->   
@@ -98,7 +101,7 @@
        
         <!-- Split button -->
         
-    <div class="btn-group">
+   <!--  <div class="btn-group">
   <button type="button" class="btn btn-info"> <a href="#hits">Hits</a></button>
   <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     <span class="caret"></span>
@@ -114,7 +117,7 @@
   </div>
  </div>
     
-</div>
+</div> -->
 
 
 <script type="text/javascript">

@@ -1,10 +1,59 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
+<div class="jumbotron text-center">
+	<h1>Hits</h1>
+</div>
 
-</body>
-</html>
+<div class="container">
+	<div class="row">
+		<ul class="nav nav-tabs">
+			<li><a data-toggle="tab" href="#admin">Locations</a></li>
+			<li class="dropdown" class="active"><a class="dropdown-toggle"
+				data-toggle="dropdown" href="">Hits
+					({{hitsController.selected}})<span class="caret"></span>
+			</a>
+				<ul class="dropdown-menu">
+					<li><a href="" ng-click="hitsController.set(0)">Daily</a></li>
+					<li><a href="" ng-click="hitsController.set(1)">Weekly</a></li>
+					<li><a href="" ng-click="hitsController.set(2)">Monthly</a></li>
+					<li><a href="" ng-click="hitsController.set(3)">Total</a></li>
+				</ul>
+		<li><a data-toggle="tab" href="#stats">Locations</a></li>
+		</ul>
+	</div>
+	<div class="row" ng-show="hits[0]" name="urls"
+		ng-repeat="location in hitsController.locations">
+		<a ng-href="#admin/{{location.id}}" class="list-group-item"> <span
+			class="glyphicon glyphicons-mixed-buildings" aria-hidden="true"></span>
+			<div class="col-sm-4">Location: {{location.name}}</div>
+			<div class="col-sm-4">Total Hits:
+				{{location.daily.hits.totalHits}}</div>
+		</a>
+	</div>
+
+	<div class="row" ng-show="hits[1]" name="urls"
+		ng-repeat="location in hitsController.locations">
+		<a ng-href="#admin/{{location.id}}" class="list-group-item"> <span
+			class="glyphicon glyphicons-mixed-buildings" aria-hidden="true"></span>
+			<div class="col-sm-4">Location: {{location.name}}</div>
+			<div class="col-sm-4">Total Hits:
+				{{location.week.hits.totalHits}}</div>
+		</a>
+	</div>
+	<div class="row" ng-show="hits[2]" name="urls"
+		ng-repeat="location in hitsController.locations">
+		<a ng-href="#admin/{{location.id}}" class="list-group-item"> <span
+			class="glyphicon glyphicons-mixed-buildings" aria-hidden="true"></span>
+			<div class="col-sm-4">Location: {{location.name}}</div>
+			<div class="col-sm-4">Total Hits:
+				{{location.month.hits.totalHits}}</div>
+		</a>
+	</div>
+	<div class="row" ng-show="hits[3]" name="urls"
+		ng-repeat="location in hitsController.locations">
+		<a ng-href="#admin/{{location.id}}" class="list-group-item"> <span
+			class="glyphicon glyphicons-mixed-buildings" aria-hidden="true"></span>
+			<div class="col-sm-4">Location: {{location.name}}</div>
+			<div class="col-sm-4">Total Hits:
+				{{location.total.hits.totalHits}}</div>
+		</a>
+	</div>
+</div>

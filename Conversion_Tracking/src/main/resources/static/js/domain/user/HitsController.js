@@ -17,7 +17,7 @@ angular.module('app').controller('HitsController', ['HitsService', 'allUrls', '$
 	var m = date.getMonth()+1
 	var y = date.getFullYear()
 	date = m + "" + d + "" + y
-	
+	//
 	allUrls.data.map(function(url){
 		var locationHitData = { 
 				'extensionURL': url.extensionURL, 

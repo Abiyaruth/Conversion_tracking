@@ -74,6 +74,17 @@ a:visited {
 	
 	background-color:#b3e6ff;
 }
+/* AdminTemplate Design */
+#home2 {
+	color: #ffffff;
+	background-color: #4EB38D;
+	border-radius:60px 140px 140px 60px;
+}
+#newUrls {
+	color: #ffffff;
+	background-color: #4EB38D;
+	border-radius:60px 80px 80px 60px;
+}
 @media(max-width:955px){
 	#container{
 		width: 100%;
